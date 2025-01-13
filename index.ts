@@ -4,7 +4,7 @@ import cors from "cors";
 import { function_declaration, function_method } from "./functions";
 
 const app = Express();
-const API_KEY = "AIzaSyCHv9k3f7aW_cE_V7HqhVcDeXmLH_oO-HU";
+const API_KEY = "Your Key";
 
 app.use(cors({ origin: "*" }));
 app.use(Express.json());
