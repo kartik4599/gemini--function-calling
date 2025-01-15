@@ -137,6 +137,20 @@ export const function_declaration = {
       required: ["startDate", "endDate"],
     },
   },
+  see_latest_notification: {
+    name: "see_latest_notification",
+    description: "View the most recent notifications",
+    parameters: {
+      type: SchemaType.OBJECT,
+      properties: {
+        count: {
+          type: SchemaType.NUMBER,
+          description:
+            "The number of latest notifications to fetch. If not provided, pass 10 as default.",
+        },
+      },
+    },
+  },
 };
 
 export const function_method = {
@@ -458,6 +472,35 @@ export const function_method = {
           date_entries: [],
           is_holiday_type: "weekly_off",
           isRegularization: false,
+        },
+      ],
+    };
+  },
+  see_latest_notification: (params: any) => {
+    // Add your notification retrieval logic here
+    console.log({ params, see_latest_notification: true });
+    return {
+      status: true,
+      notifications: [
+        {
+          id: 212260,
+          sender_id: 37,
+          receiver_id: 405,
+          notification_id: 122446,
+          read_status: true,
+          createdAt: "2024-12-30T04:59:51.000Z",
+          updatedAt: "2024-12-30T05:08:51.000Z",
+          notification: {
+            message: "AR request for Dec 09 2024, Monday is approved.",
+            type: "ar_req_approved_noti",
+            redirect_url:
+              "https://rms.mindinventory.net/attendance-logs?tab=my-attendance",
+            notification_category_id: 1,
+          },
+          Sender: {
+            first_name: "Karan",
+            last_name: "Pandya",
+          },
         },
       ],
     };
