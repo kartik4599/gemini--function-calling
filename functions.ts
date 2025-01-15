@@ -31,10 +31,14 @@ export const function_declaration = {
           description:
             "Type of leave being applied. strict input are PL(Privilege Leave), LWP(Leave Without Pay), MARRL(Marriage Leave), BL(Bereavement Leave), PTL(Paternity Leave)",
         },
+        reason: {
+          type: SchemaType.STRING,
+          description: "Reason for applying for leave",
+        },
         confirmation: {
           type: SchemaType.BOOLEAN,
           description:
-            "After receiving startDate, startHalf, endDate, endHalf, leaveType for leave show the leave detail to user and ask for confirmation.",
+            "After receiving startDate, startHalf, endDate, endHalf, reason and leaveType for leave show the leave detail to user and ask for confirmation.",
         },
       },
       required: [
@@ -43,6 +47,7 @@ export const function_declaration = {
         "endDate",
         "endHalf",
         "leaveType",
+        "reason",
         "confirmation",
       ],
     },
