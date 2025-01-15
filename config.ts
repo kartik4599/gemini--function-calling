@@ -1,12 +1,11 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { function_declaration } from "./functions";
-
-const API_KEY = "Your Key";
+import { API_KEY } from "./key";
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 const GM = genAI.getGenerativeModel({
-  model: "gemini-1.5-flash",
+  model: "gemini-2.0-flash-exp",
   tools: [
     {
       functionDeclarations: [
