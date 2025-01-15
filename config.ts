@@ -16,6 +16,8 @@ const GM = genAI.getGenerativeModel({
         function_declaration.see_leave_balance,
         function_declaration.see_attendance_log,
         function_declaration.see_latest_notification,
+        function_declaration.see_lunch_menu,
+        function_declaration.meal_planning,
       ],
     },
   ],

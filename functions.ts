@@ -151,6 +151,41 @@ export const function_declaration = {
       },
     },
   },
+  see_lunch_menu: {
+    name: "see_lunch_menu",
+    description: "View the lunch menu for a week",
+  },
+  meal_planning: {
+    name: "meal_planning",
+    description:
+      "Plan meals by specifying dates and their application statuses (apply or remove application)",
+    parameters: {
+      type: SchemaType.OBJECT,
+      properties: {
+        dates: {
+          type: SchemaType.ARRAY,
+          description:
+            "An array of objects containing a date and status. The date should be in YYYY-MM-DD format, and the status should be 1 (apply) or 0 (remove application).",
+          items: {
+            type: SchemaType.OBJECT,
+            properties: {
+              date: {
+                type: SchemaType.STRING,
+                description: "The date for meal planning in YYYY-MM-DD format",
+              },
+              status: {
+                type: SchemaType.NUMBER,
+                description:
+                  "The application status: 1 for applying, 0 for removing application",
+              },
+            },
+            required: ["date", "status"],
+          },
+        },
+      },
+      required: ["dates"],
+    },
+  },
 };
 
 export const function_method = {
@@ -503,6 +538,22 @@ export const function_method = {
           },
         },
       ],
+    };
+  },
+  see_lunch_menu: (params: any) => {
+    // Add your lunch menu retrieval logic here
+    console.log({ params, see_lunch_menu: true });
+    return {
+      menu: '<p>Refill your plate again if you want but please do not waste food 🙏🏻😇</p><p><strong><u>WEEKLY FOOD MENU</u></strong></p><ul><li><strong>Monday</strong></li></ul><ol type="1"><li>Rajma Chawal</li><li>Aloo Gobi</li><li>Paneer Butter Masala</li><li>Gulab Jamun</li></ol><ul><li><strong>Tuesday</strong></li></ul><ol type="1"><li>Chole Bhature</li><li>Jeera Rice</li><li>Mix Vegetable Curry</li><li>Rasgulla</li></ol><ul><li><strong>Wednesday</strong></li></ul><ol type="1"><li>Dal Tadka</li><li>Paneer Tikka Masala</li><li>Veg Pulao</li><li>Jalebi</li></ol><ul><li><strong>Thursday</strong></li></ul><ol type="1"><li>Sambar Rice</li><li>Masala Dosa</li><li>Idli with Coconut Chutney</li><li>Medu Vada</li><li>Payasam</li></ol><ul><li><strong>Friday</strong></li></ul><ol type="1"><li>Butter Chicken (or Paneer Butter Masala for vegetarians)</li><li>Naan</li><li>Dal Makhani</li><li>Ice Cream</li></ol>',
+      updatedAt: "2025-01-10T11:30:01.000Z",
+    };
+  },
+  meal_planning: (params: any) => {
+    // Add your meal planning logic here
+    console.log({ params: JSON.stringify(params), meal_planning: true });
+    return {
+      status: true,
+      message: "Meal plan updated successfully!",
     };
   },
 };
