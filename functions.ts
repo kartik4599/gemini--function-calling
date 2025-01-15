@@ -203,9 +203,67 @@ export const function_method = {
 
     return {
       status: true,
-      leaves: [
-        { type: "Paid Leave", days: 10 },
-        { type: "Un-paid Leave", days: 10 },
+      balance: [
+        {
+          balance: 0,
+          employee_id: 405,
+          leaveType: {
+            id: 3,
+            leave_type: "MARRL",
+            title: "Marriage Leave",
+            description:
+              "This leave is allocated to employees for their own marriage.",
+            status: true,
+            createdAt: "2022-11-04T10:54:04.000Z",
+            updatedAt: "2023-04-03T07:42:17.000Z",
+          },
+          leave_type_id: 3,
+        },
+        {
+          balance: 0,
+          employee_id: 405,
+          id: 1309,
+          leaveType: {
+            id: 1,
+            leave_type: "PL",
+            title: "Privilege Leave",
+            description: "This is the paid leave.",
+            status: true,
+            createdAt: "2022-11-04T10:53:42.000Z",
+            updatedAt: "2023-12-29T04:42:31.000Z",
+          },
+          leave_type_id: 1,
+        },
+        {
+          balance: 0,
+          employee_id: 405,
+          leaveType: {
+            id: 5,
+            leave_type: "PTL",
+            title: "Paternity Leave",
+            description:
+              "Whenever any of our male employee is blessed with a new born in the family he will get 5 leaves to use as a paternity leave.",
+            status: true,
+            createdAt: "2023-06-30T11:25:52.000Z",
+            updatedAt: "2023-06-30T11:25:52.000Z",
+          },
+          leave_type_id: 5,
+        },
+        {
+          balance: 0,
+          employee_id: 405,
+          leaveType: {
+            id: 4,
+            leave_type: "BL",
+            title: "Bereavement Leave",
+            description:
+              "In case of a death of any immediate family member occurs then employee will get 5 leaves where he/she can use support the family in that difficult time.\t",
+            status: true,
+            createdAt: "2023-06-30T11:25:34.000Z",
+            updatedAt: "2023-06-30T11:25:34.000Z",
+          },
+          leave_type_id: 4,
+        },
       ],
     };
   },
