@@ -12,16 +12,39 @@ export const function_declaration = {
           type: SchemaType.STRING,
           description: "The start date of the leave in YYYY-MM-DD format",
         },
+        startHalf: {
+          type: SchemaType.STRING,
+          description:
+            "From which half leave start from, strict input are 'First Half' or 'Second Half'.",
+        },
         endDate: {
           type: SchemaType.STRING,
           description: "The end date of the leave in YYYY-MM-DD format",
         },
+        endHalf: {
+          type: SchemaType.STRING,
+          description:
+            "From which half leave end at, strict input are 'First Half' or 'Second Half'.",
+        },
         leaveType: {
           type: SchemaType.STRING,
           description:
-            "Type of leave being applied for like Privilege Leave:PL, Leave Without Pay:LWP, Marriage Leave:MARRL, Bereavement Leave:BL, Paternity Leave:PTL",
+            "Type of leave being applied. strict input are PL(Privilege Leave), LWP(Leave Without Pay), MARRL(Marriage Leave), BL(Bereavement Leave), PTL(Paternity Leave)",
+        },
+        confirmation: {
+          type: SchemaType.BOOLEAN,
+          description:
+            "After receiving startDate, startHalf, endDate, endHalf, leaveType for leave show the leave detail to user and ask for confirmation.",
         },
       },
+      required: [
+        "startDate",
+        "startHalf",
+        "endDate",
+        "endHalf",
+        "leaveType",
+        "confirmation",
+      ],
     },
   },
   see_leave_balance: {
@@ -42,6 +65,11 @@ export const function_declaration = {
         endDate: {
           type: SchemaType.STRING,
           description: "The end date of WFH in YYYY-MM-DD format",
+        },
+        confirmation: {
+          type: SchemaType.BOOLEAN,
+          description:
+            "After receiving startDate and endDate for WFH show the WFH detail to user and ask for confirmation ",
         },
       },
     },

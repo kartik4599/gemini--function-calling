@@ -17,7 +17,6 @@ app.post("/chat", async (req, res) => {
     const { response } = await model.sendMessage(prompt);
     const call = response.functionCalls();
     if (!call) return res.json({ response: response.text() });
-    console.log(call);
 
     const FunctionResponse = await Promise.all(
       call.map(async ({ name, args }) => ({
