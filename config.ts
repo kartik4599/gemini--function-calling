@@ -14,6 +14,7 @@ const GM = genAI.getGenerativeModel({
         function_declaration.book_meeting_room,
         function_declaration.request_it_support,
         function_declaration.see_leave_balance,
+        function_declaration.see_attendance_log,
       ],
     },
   ],
