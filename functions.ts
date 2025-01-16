@@ -4,7 +4,7 @@ export const function_declaration = {
   apply_for_leave: {
     name: "apply_for_leave",
     description:
-      "Apply for leave with specified start date and half, end date and half, leave type",
+      "Apply for leave with specified start date and half, end date and half, leave type. If only one Date is provider pass it as startDate and endDate",
     parameters: {
       type: SchemaType.OBJECT,
       properties: {
@@ -59,7 +59,7 @@ export const function_declaration = {
   apply_for_wfh: {
     name: "apply_for_wfh",
     description:
-      "Apply for Work From Home (WFH) for specified start and end dates",
+      "Apply for Work From Home (WFH) for specified start and end dates. If only one Date is provider pass it as startDate and endDate",
     parameters: {
       type: SchemaType.OBJECT,
       properties: {
@@ -119,7 +119,7 @@ export const function_declaration = {
   see_attendance_log: {
     name: "see_attendance_log",
     description:
-      "View the attendance log for a specified date range which includes data like working hours, gross hours, break hours absent, is holiday and holiday type",
+      "View the attendance log for a specified date range which includes data like working hours, gross hours, break hours absent, is holiday and holiday type. If only one Date is provider pass it as startDate and endDate",
     parameters: {
       type: SchemaType.OBJECT,
       properties: {
