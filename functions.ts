@@ -153,7 +153,8 @@ export const function_declaration = {
   },
   see_lunch_menu: {
     name: "see_lunch_menu",
-    description: "View the lunch menu for a week",
+    description:
+      "View the lunch menu for a week starting from Monday to Friday",
   },
   meal_planning: {
     name: "meal_planning",

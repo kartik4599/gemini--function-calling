@@ -4,6 +4,12 @@ import { API_KEY } from "./key";
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 
+export const getFreshModel = () => {
+  return genAI
+    .getGenerativeModel({ model: "gemini-2.0-flash-exp" })
+    .startChat();
+};
+
 const GM = genAI.getGenerativeModel({
   model: "gemini-2.0-flash-exp",
   tools: [
