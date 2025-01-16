@@ -4,7 +4,7 @@ export const function_declaration = {
   apply_for_leave: {
     name: "apply_for_leave",
     description:
-      "Apply for leave with specified start and end dates and type of leave",
+      "Apply for leave with specified start date and half, end date and half, leave type",
     parameters: {
       type: SchemaType.OBJECT,
       properties: {
@@ -31,10 +31,10 @@ export const function_declaration = {
           description:
             "Type of leave being applied. strict input are PL(Privilege Leave), LWP(Leave Without Pay), MARRL(Marriage Leave), BL(Bereavement Leave), PTL(Paternity Leave)",
         },
-        reason: {
-          type: SchemaType.STRING,
-          description: "Reason for applying for leave",
-        },
+        // reason: {
+        //   type: SchemaType.STRING,
+        //   description: "Reason for applying for leave",
+        // },
         confirmation: {
           type: SchemaType.BOOLEAN,
           description:
@@ -47,7 +47,7 @@ export const function_declaration = {
         "endDate",
         "endHalf",
         "leaveType",
-        "reason",
+        // "reason",
         "confirmation",
       ],
     },
