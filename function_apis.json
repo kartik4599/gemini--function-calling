@@ -1,0 +1,11 @@
+{
+  "apply_for_leave": "http://localhost:4999/apply_for_leave",
+  "see_leave_balance": "http://localhost:4999/see_leave_balance",
+  "apply_for_wfh": "http://localhost:4999/apply_for_wfh",
+  "request_it_support": "http://localhost:4999/request_it_support",
+  "book_meeting_room": "http://localhost:4999/book_meeting_room",
+  "see_attendance_log": "http://localhost:4999/see_attendance_log",
+  "see_latest_notification": "http://localhost:4999/see_latest_notification",
+  "see_lunch_menu": "http://localhost:4999/see_lunch_menu",
+  "meal_planning": "http://localhost:4999/meal_planning"
+}

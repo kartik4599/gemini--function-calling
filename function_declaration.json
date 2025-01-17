@@ -1,0 +1,165 @@
+{
+  "apply_for_leave": {
+    "name": "apply_for_leave",
+    "description": "Apply for leave with specified start date and half, end date and half, leave type. If only one Date is provider pass it as startDate and endDate",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "startDate": {
+          "type": "string",
+          "description": "The start date of the leave in YYYY-MM-DD format"
+        },
+        "startHalf": {
+          "type": "string",
+          "description": "From which half leave start from, strict input are 'First Half' or 'Second Half'."
+        },
+        "endDate": {
+          "type": "string",
+          "description": "The end date of the leave in YYYY-MM-DD format"
+        },
+        "endHalf": {
+          "type": "string",
+          "description": "From which half leave end at, strict input are 'First Half' or 'Second Half'."
+        },
+        "leaveType": {
+          "type": "string",
+          "description": "Type of leave being applied. strict input are PL(Privilege Leave), LWP(Leave Without Pay), MARRL(Marriage Leave), BL(Bereavement Leave), PTL(Paternity Leave)"
+        },
+        "confirmation": {
+          "type": "boolean",
+          "description": "After receiving startDate, startHalf, endDate, endHalf, reason and leaveType for leave show the leave detail to user and ask for confirmation."
+        }
+      },
+      "required": [
+        "startDate",
+        "startHalf",
+        "endDate",
+        "endHalf",
+        "leaveType",
+        "confirmation"
+      ]
+    }
+  },
+  "see_leave_balance": {
+    "name": "see_leave_balance",
+    "description": "Check the leave balance available to the user"
+  },
+  "apply_for_wfh": {
+    "name": "apply_for_wfh",
+    "description": "Apply for Work From Home (WFH) for specified start and end dates. If only one Date is provider pass it as startDate and endDate",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "startDate": {
+          "type": "string",
+          "description": "The start date of WFH in YYYY-MM-DD format"
+        },
+        "endDate": {
+          "type": "string",
+          "description": "The end date of WFH in YYYY-MM-DD format"
+        },
+        "confirmation": {
+          "type": "boolean",
+          "description": "After receiving startDate and endDate for WFH show the WFH detail to user and ask for confirmation "
+        }
+      }
+    }
+  },
+  "request_it_support": {
+    "name": "request_it_support",
+    "description": "Request IT support by specifying the issue that needs assistance",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "issue": {
+          "type": "string",
+          "description": "Description of the IT issue that requires support"
+        }
+      }
+    }
+  },
+  "book_meeting_room": {
+    "name": "book_meeting_room",
+    "description": "Book a meeting room for a specified time slot",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "roomNumber": {
+          "type": "string",
+          "description": "The meeting room number to be booked"
+        },
+        "fromTime": {
+          "type": "string",
+          "description": "The start time for the booking in HH:MM format (24-hour clock)"
+        },
+        "toTime": {
+          "type": "string",
+          "description": "The end time for the booking in HH:MM format (24-hour clock)"
+        }
+      }
+    }
+  },
+  "see_attendance_log": {
+    "name": "see_attendance_log",
+    "description": "View the attendance log for a specified date range which includes data like working hours, gross hours, break hours absent, is holiday and holiday type. If only one Date is provider pass it as startDate and endDate",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "startDate": {
+          "type": "string",
+          "description": "The start date for the attendance log in YYYY-MM-DD format"
+        },
+        "endDate": {
+          "type": "string",
+          "description": "The end date for the attendance log in YYYY-MM-DD format"
+        }
+      },
+      "required": ["startDate", "endDate"]
+    }
+  },
+  "see_latest_notification": {
+    "name": "see_latest_notification",
+    "description": "View the most recent notifications",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "number",
+          "description": "The number of latest notifications to fetch. If not provided, pass 10 as default."
+        }
+      }
+    }
+  },
+  "see_lunch_menu": {
+    "name": "see_lunch_menu",
+    "description": "View the lunch menu for a week starting from Monday to Friday"
+  },
+  "meal_planning": {
+    "name": "meal_planning",
+    "description": "Plan meals by specifying dates and their application statuses (apply or remove application)",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "dates": {
+          "type": "array",
+          "description": "An array of objects containing a date and status. The date should be in YYYY-MM-DD format, and the status should be 1 (apply) or 0 (remove application).",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string",
+                "description": "The date for meal planning in YYYY-MM-DD format"
+              },
+              "status": {
+                "type": "number",
+                "description": "The application status: 1 for applying, 0 for removing application"
+              }
+            },
+            "required": ["date", "status"]
+          }
+        }
+      },
+      "required": ["dates"]
+    }
+  }
+}
