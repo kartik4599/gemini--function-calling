@@ -1,12 +1,16 @@
 import Express from "express";
 import cors from "cors";
-import { function_method } from "./functions";
 import { getFreshModel, getModel } from "./config";
+import function_apis from "./function_apis.json";
+import router from "./functions";
+import axios from "axios";
 
 const app = Express();
 
 app.use(cors({ origin: "*" }));
 app.use(Express.json());
+
+app.use(router);
 
 // @ts-ignore
 app.post("/chat", async (req, res) => {
@@ -20,12 +24,36 @@ app.post("/chat", async (req, res) => {
     if (!call) return res.json({ response: response.text() });
 
     const FunctionResponse = await Promise.all(
-      call.map(async ({ name, args }) => ({
-        functionResponse: {
-          name,
-          response: await function_method[name](args),
-        },
-      }))
+      call.map(async ({ name, args }) => {
+        try {
+          const path = function_apis[name];
+          if (!path) {
+            return {
+              functionResponse: {
+                name,
+                response: { status: false, error: "404:Function not found" },
+              },
+            };
+          }
+          const { data } = await axios.post(path, args);
+          return {
+            functionResponse: {
+              name,
+              response: data,
+            },
+          };
+        } catch (e) {
+          return {
+            functionResponse: {
+              name,
+              response: {
+                status: false,
+                error: "Error occurred while api calling",
+              },
+            },
+          };
+        }
+      })
     );
 
     const { response: finalResponse } = await model.sendMessage(
